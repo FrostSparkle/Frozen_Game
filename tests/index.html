@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FrostSparkle Test Runner</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            background: #f8fafc;
+            color: #1a202c;
+            margin: 0;
+            padding: 2rem;
+        }
+        h1 {
+            margin-top: 0;
+        }
+        .test-summary {
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .test-result {
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            margin-bottom: 0.5rem;
+            border: 1px solid transparent;
+        }
+        .test-result.pass {
+            background: #dbf5e5;
+            border-color: #38a169;
+        }
+        .test-result.fail {
+            background: #fed7d7;
+            border-color: #e53e3e;
+        }
+        code {
+            background: rgba(26, 32, 44, 0.08);
+            padding: 0.1rem 0.25rem;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>FrostSparkle Test Runner</h1>
+    <main id="test-output"></main>
+    <script type="module">
+        import { run, reportError } from './testRunner.js';
+
+        Promise.all([
+            import('./wardrobe.test.js'),
+            import('./characters.test.js')
+        ])
+            .then(() => run())
+            .catch((error) => {
+                reportError(error);
+            });
+    </script>
+</body>
+</html>
+

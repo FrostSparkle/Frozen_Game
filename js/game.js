@@ -86,10 +86,7 @@ class Game {
                     this.outfitCategoriesList,
                     this.outfitsGrid,
                     this.applyOutfitBtn,
-                    this.removeOutfitBtn
-                );
-                this.wardrobeManager.populateCharacterSelector(
-                    this.wardrobeCharacterSelect,
+                    this.removeOutfitBtn,
                     this.characterManager.characters
                 );
             } else {
@@ -103,10 +100,7 @@ class Game {
                         this.outfitCategoriesList,
                         this.outfitsGrid,
                         this.applyOutfitBtn,
-                        this.removeOutfitBtn
-                    );
-                    this.wardrobeManager.populateCharacterSelector(
-                        this.wardrobeCharacterSelect,
+                        this.removeOutfitBtn,
                         this.characterManager.characters
                     );
                 }

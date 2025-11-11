@@ -40,7 +40,17 @@ export class WardrobeManager {
         return Array.from(categories);
     }
 
-    openWardrobe(characterId, panel, overlay, characterSelect, categoriesList, outfitsGrid, applyBtn, removeBtn) {
+    openWardrobe(
+        characterId,
+        panel,
+        overlay,
+        characterSelect,
+        categoriesList,
+        outfitsGrid,
+        applyBtn,
+        removeBtn,
+        characters = []
+    ) {
         this.selectedCharacter = characterId;
         this.selectedOutfit = null;
         this.selectedCategory = 'all';
@@ -50,7 +60,7 @@ export class WardrobeManager {
         overlay.classList.remove('hidden');
 
         // Populate character selector
-        this.populateCharacterSelector(characterSelect);
+        this.populateCharacterSelector(characterSelect, characters);
 
         // Set selected character
         if (characterSelect) {
@@ -68,7 +78,7 @@ export class WardrobeManager {
         this.selectedOutfit = null;
     }
 
-    populateCharacterSelector(characterSelect, characters) {
+    populateCharacterSelector(characterSelect, characters = []) {
         if (!characterSelect) return;
 
         characterSelect.innerHTML = '';
