@@ -1,12 +1,17 @@
 {
-  "name": "app",
+  "name": "frostsparkle-app",
+  "private": true,
   "version": "1.0.0",
-  "description": "A web-based interactive storybook game where you can dress up Frozen-style characters, navigate through scenes, and have characters talk to each other through pre-written dialogue.",
+  "description": "A web-based interactive storybook game served locally with Vite for development.",
   "main": "index.js",
+  "type": "module",
   "directories": {
     "test": "tests"
   },
   "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 5173",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,8 +21,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module",
   "dependencies": {
     "jsdom": "^27.1.0"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
   }
 }

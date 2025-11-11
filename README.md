@@ -164,6 +164,25 @@ App/
 - **Dialogue not working**: Ensure dialogue scene and character IDs match exactly (case-sensitive)
 - **Wardrobe not opening**: Check browser console for JavaScript errors
 
+## Running the game with npm
+
+This project is a static site. For a smooth local workflow, a lightweight dev server is included using Vite.
+
+1. Open a terminal in the `App` directory (this folder).
+2. Run:
+
+```
+npm install
+npm run dev
+```
+
+3. Follow the URL printed in the terminal (e.g., `http://localhost:5173/`).
+4. Tests are available at `/tests/index.html` (e.g., `http://localhost:5173/tests/index.html`).
+
+Notes:
+- You only need Node.js and npm installed. No build step is required, but `npm run dev` provides fast reload and serves JSON/assets correctly.
+- If you prefer, `npm run preview` will serve the production build locally.
+
 ## Future Enhancements
 
 - Sound effects and voice clips
