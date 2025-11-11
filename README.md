@@ -4,11 +4,19 @@ A web-based interactive storybook game where you can dress up Frozen-style chara
 
 ## Getting Started
 
-1. Open `index.html` in a web browser (Chrome, Firefox, Edge, etc.)
-2. The game will load automatically
-3. Click on characters to hear them speak
-4. Use the "Wardrobe" button to dress up characters
-5. Navigate between scenes using the Previous/Next buttons or scene thumbnails
+The game loads its data files with `fetch`, so it needs to be served from a local web server (opening `index.html` directly with `file://` will show a blank scene).
+
+### Quick Start (Node.js)
+
+1. Open a terminal in the `App` folder.
+2. Run `npx --yes http-server -p 8080`.
+3. When the server starts, visit `http://localhost:8080/index.html` in your browser.
+4. Click on characters to hear them speak, use the “Wardrobe” button to dress them up, and navigate scenes with the Previous/Next buttons or thumbnails.
+
+### Other Options
+
+- `python -m http.server 8080` (if Python is installed), then visit `http://localhost:8080/index.html`.
+- VS Code's “Live Server” extension or any static file server you prefer.
 
 ## Game Features
 
@@ -150,6 +158,7 @@ App/
 
 ## Troubleshooting
 
+- **Blank scene / no characters**: Make sure you opened the game via `http://localhost...` and not by double-clicking `index.html` (browsers block JSON loading over `file://`).
 - **Images not showing**: Check that image paths in JSON files match actual file locations
 - **Characters not appearing**: Verify character IDs in scene data match character IDs in characters.json
 - **Dialogue not working**: Ensure dialogue scene and character IDs match exactly (case-sensitive)
