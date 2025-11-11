@@ -1,0 +1,33 @@
+{
+  "scenes": [
+    {
+      "id": "castle",
+      "name": "Castle",
+      "background": "assets/images/scenes/castle.jpg",
+      "characters": ["elsa", "anna"],
+      "unlocked": true
+    },
+    {
+      "id": "ice_palace",
+      "name": "Ice Palace",
+      "background": "assets/images/scenes/ice-palace.jpg",
+      "characters": ["elsa"],
+      "unlocked": true
+    },
+    {
+      "id": "village",
+      "name": "Village",
+      "background": "assets/images/scenes/village.jpg",
+      "characters": ["anna", "olaf"],
+      "unlocked": true
+    },
+    {
+      "id": "forest",
+      "name": "Enchanted Forest",
+      "background": "assets/images/scenes/forest.jpg",
+      "characters": ["elsa", "anna", "olaf"],
+      "unlocked": true
+    }
+  ]
+}
+

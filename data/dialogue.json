@@ -1,0 +1,117 @@
+{
+  "dialogue": [
+    {
+      "id": "castle_elsa_1",
+      "scene": "castle",
+      "character": "elsa",
+      "text": "Hello! Welcome to our castle! Would you like to explore together?",
+      "next": "castle_elsa_2"
+    },
+    {
+      "id": "castle_elsa_2",
+      "scene": "castle",
+      "character": "elsa",
+      "text": "I love playing here with my sister Anna. We have so much fun!",
+      "next": null
+    },
+    {
+      "id": "castle_anna_1",
+      "scene": "castle",
+      "character": "anna",
+      "text": "Hi there! I'm so excited you're here! Want to see my favorite room?",
+      "next": "castle_anna_2"
+    },
+    {
+      "id": "castle_anna_2",
+      "scene": "castle",
+      "character": "anna",
+      "text": "It's the library! I love reading stories about adventures!",
+      "next": null
+    },
+    {
+      "id": "ice_palace_elsa_1",
+      "scene": "ice_palace",
+      "character": "elsa",
+      "text": "This is my ice palace! I built it with my magic. Isn't it beautiful?",
+      "next": "ice_palace_elsa_2"
+    },
+    {
+      "id": "ice_palace_elsa_2",
+      "scene": "ice_palace",
+      "character": "elsa",
+      "text": "Sometimes I come here to think and create beautiful ice sculptures!",
+      "next": null
+    },
+    {
+      "id": "village_anna_1",
+      "scene": "village",
+      "character": "anna",
+      "text": "Welcome to the village! Everyone here is so friendly and kind!",
+      "next": "village_anna_2"
+    },
+    {
+      "id": "village_anna_2",
+      "scene": "village",
+      "character": "anna",
+      "text": "I love visiting the shops and talking with all the people!",
+      "next": null
+    },
+    {
+      "id": "village_olaf_1",
+      "scene": "village",
+      "character": "olaf",
+      "text": "Hi! I'm Olaf! I love warm hugs! Do you like warm hugs too?",
+      "next": "village_olaf_2"
+    },
+    {
+      "id": "village_olaf_2",
+      "scene": "village",
+      "character": "olaf",
+      "text": "I also love summer! Even though I'm made of snow, summer is my favorite!",
+      "next": null
+    },
+    {
+      "id": "forest_elsa_1",
+      "scene": "forest",
+      "character": "elsa",
+      "text": "The enchanted forest is so magical! Look at all the beautiful trees!",
+      "next": "forest_elsa_2"
+    },
+    {
+      "id": "forest_elsa_2",
+      "scene": "forest",
+      "character": "elsa",
+      "text": "Anna and I discovered so many secrets here. It's full of wonder!",
+      "next": null
+    },
+    {
+      "id": "forest_anna_1",
+      "scene": "forest",
+      "character": "anna",
+      "text": "This forest is amazing! I love going on adventures here!",
+      "next": "forest_anna_2"
+    },
+    {
+      "id": "forest_anna_2",
+      "scene": "forest",
+      "character": "anna",
+      "text": "Every time we visit, we find something new and exciting!",
+      "next": null
+    },
+    {
+      "id": "forest_olaf_1",
+      "scene": "forest",
+      "character": "olaf",
+      "text": "The forest is so big! I wonder what's around that next tree!",
+      "next": "forest_olaf_2"
+    },
+    {
+      "id": "forest_olaf_2",
+      "scene": "forest",
+      "character": "olaf",
+      "text": "Exploring is so much fun, especially with friends!",
+      "next": null
+    }
+  ]
+}
+

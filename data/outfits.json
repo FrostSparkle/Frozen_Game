@@ -1,0 +1,69 @@
+{
+  "outfits": [
+    {
+      "id": "elsa_winter_dress",
+      "name": "Winter Dress",
+      "category": "dress",
+      "character": "elsa",
+      "image": "assets/images/outfits/elsa-winter-dress.png",
+      "layers": ["base", "dress"]
+    },
+    {
+      "id": "elsa_ice_dress",
+      "name": "Ice Queen Dress",
+      "category": "dress",
+      "character": "elsa",
+      "image": "assets/images/outfits/elsa-ice-dress.png",
+      "layers": ["base", "dress"]
+    },
+    {
+      "id": "elsa_casual",
+      "name": "Casual Outfit",
+      "category": "casual",
+      "character": "elsa",
+      "image": "assets/images/outfits/elsa-casual.png",
+      "layers": ["base", "dress"]
+    },
+    {
+      "id": "anna_summer_dress",
+      "name": "Summer Dress",
+      "category": "dress",
+      "character": "anna",
+      "image": "assets/images/outfits/anna-summer-dress.png",
+      "layers": ["base", "dress"]
+    },
+    {
+      "id": "anna_winter_outfit",
+      "name": "Winter Outfit",
+      "category": "dress",
+      "character": "anna",
+      "image": "assets/images/outfits/anna-winter-outfit.png",
+      "layers": ["base", "dress"]
+    },
+    {
+      "id": "anna_casual",
+      "name": "Casual Clothes",
+      "category": "casual",
+      "character": "anna",
+      "image": "assets/images/outfits/anna-casual.png",
+      "layers": ["base", "dress"]
+    },
+    {
+      "id": "olaf_summer",
+      "name": "Summer Accessories",
+      "category": "accessories",
+      "character": "olaf",
+      "image": "assets/images/outfits/olaf-summer.png",
+      "layers": ["base", "accessories"]
+    },
+    {
+      "id": "olaf_party",
+      "name": "Party Hat",
+      "category": "accessories",
+      "character": "olaf",
+      "image": "assets/images/outfits/olaf-party.png",
+      "layers": ["base", "accessories"]
+    }
+  ]
+}
+

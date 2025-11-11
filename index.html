@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FrostSparkle - Interactive Storybook</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header -->
+        <header class="game-header">
+            <h1>FrostSparkle</h1>
+            <button id="wardrobe-btn" class="wardrobe-btn" aria-label="Open Wardrobe">👗 Wardrobe</button>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-main">
+            <!-- Scene Container -->
+            <div id="scene-container" class="scene-container">
+                <div id="scene-background" class="scene-background"></div>
+                <div id="characters-container" class="characters-container"></div>
+            </div>
+
+            <!-- Scene Navigation -->
+            <div class="scene-navigation">
+                <button id="prev-scene-btn" class="nav-btn" aria-label="Previous Scene">← Previous</button>
+                <div id="scene-selector" class="scene-selector"></div>
+                <button id="next-scene-btn" class="nav-btn" aria-label="Next Scene">Next →</button>
+            </div>
+        </main>
+
+        <!-- Dialogue Box -->
+        <div id="dialogue-box" class="dialogue-box hidden">
+            <div class="dialogue-content">
+                <div class="dialogue-character">
+                    <span id="dialogue-character-name"></span>
+                </div>
+                <div class="dialogue-text">
+                    <p id="dialogue-text-content"></p>
+                </div>
+                <button id="dialogue-continue-btn" class="dialogue-continue-btn">Continue</button>
+            </div>
+        </div>
+
+        <!-- Wardrobe Panel -->
+        <div id="wardrobe-panel" class="wardrobe-panel hidden">
+            <div class="wardrobe-header">
+                <h2>Wardrobe</h2>
+                <button id="wardrobe-close-btn" class="close-btn" aria-label="Close Wardrobe">×</button>
+            </div>
+            <div class="wardrobe-content">
+                <div class="character-selector">
+                    <label for="wardrobe-character-select">Choose Character:</label>
+                    <select id="wardrobe-character-select" class="character-select">
+                        <!-- Populated by JavaScript -->
+                    </select>
+                </div>
+                <div class="outfit-categories">
+                    <div id="outfit-categories-list" class="categories-list">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+                <div class="outfits-grid" id="outfits-grid">
+                    <!-- Populated by JavaScript -->
+                </div>
+                <div class="wardrobe-actions">
+                    <button id="apply-outfit-btn" class="action-btn" disabled>Apply Outfit</button>
+                    <button id="remove-outfit-btn" class="action-btn" disabled>Remove Outfit</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Overlay (for modal effects) -->
+        <div id="overlay" class="overlay hidden"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/game.js" type="module"></script>
+</body>
+</html>
+

@@ -1,0 +1,44 @@
+{
+  "characters": [
+    {
+      "id": "elsa",
+      "name": "Elsa",
+      "sprite": "assets/images/characters/elsa-base.png",
+      "position": {
+        "castle": {"x": 300, "y": 400},
+        "ice_palace": {"x": 400, "y": 350},
+        "village": {"x": 200, "y": 450},
+        "forest": {"x": 350, "y": 400}
+      },
+      "outfit": "default",
+      "defaultOutfit": "default"
+    },
+    {
+      "id": "anna",
+      "name": "Anna",
+      "sprite": "assets/images/characters/anna-base.png",
+      "position": {
+        "castle": {"x": 500, "y": 400},
+        "ice_palace": {"x": 200, "y": 450},
+        "village": {"x": 400, "y": 400},
+        "forest": {"x": 550, "y": 400}
+      },
+      "outfit": "default",
+      "defaultOutfit": "default"
+    },
+    {
+      "id": "olaf",
+      "name": "Olaf",
+      "sprite": "assets/images/characters/olaf-base.png",
+      "position": {
+        "castle": {"x": 700, "y": 450},
+        "ice_palace": {"x": 600, "y": 450},
+        "village": {"x": 600, "y": 400},
+        "forest": {"x": 150, "y": 450}
+      },
+      "outfit": "default",
+      "defaultOutfit": "default"
+    }
+  ]
+}
+
