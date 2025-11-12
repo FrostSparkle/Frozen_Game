@@ -25,6 +25,14 @@
       "layers": ["base", "dress"]
     },
     {
+      "id": "elsa_winter_outfit",
+      "name": "Winter Outfit",
+      "category": "winter",
+      "character": "elsa",
+      "image": "assets/images/outfits/elsa_winter_outfit.png",
+      "layers": ["base", "dress"]
+    },
+    {
       "id": "anna_summer_dress",
       "name": "Summer Dress",
       "category": "dress",

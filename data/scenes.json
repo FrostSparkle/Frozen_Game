@@ -18,7 +18,7 @@
       "id": "village",
       "name": "Village",
       "background": "assets/images/scenes/village.jpg",
-      "characters": ["anna", "olaf"],
+      "characters": ["elsa", "anna", "olaf"],
       "unlocked": true
     },
     {

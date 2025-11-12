@@ -43,30 +43,41 @@ export class DialogueManager {
         return this.dialogue.find(d => d.id === dialogueId);
     }
 
-    showDialogue(characterName, text, dialogueBox, characterNameElement, textElement, continueBtn) {
+    showDialogue(characterName, text, dialogueBox, characterNameElement, textElement, continueBtn, overlay = null) {
         if (!dialogueBox || !characterNameElement || !textElement) return;
 
         characterNameElement.textContent = characterName;
         textElement.textContent = text;
         
         dialogueBox.classList.remove('hidden');
+        
+        // Show overlay if provided
+        if (overlay) {
+            overlay.classList.remove('hidden');
+        }
 
         // Set up continue button
         if (continueBtn) {
             continueBtn.onclick = () => {
-                this.hideDialogue(dialogueBox);
+                this.hideDialogue(dialogueBox, overlay);
             };
         }
     }
 
-    hideDialogue(dialogueBox) {
+    hideDialogue(dialogueBox, overlay = null) {
         if (dialogueBox) {
             dialogueBox.classList.add('hidden');
         }
+        
+        // Hide overlay if provided
+        if (overlay) {
+            overlay.classList.add('hidden');
+        }
+        
         this.currentDialogue = null;
     }
 
-    showDialogueSequence(dialogueEntries, dialogueBox, characterNameElement, textElement, continueBtn, onComplete) {
+    showDialogueSequence(dialogueEntries, dialogueBox, characterNameElement, textElement, continueBtn, onComplete, overlay = null) {
         if (!dialogueEntries || dialogueEntries.length === 0) {
             if (onComplete) onComplete();
             return;
@@ -76,7 +87,7 @@ export class DialogueManager {
 
         const showNext = () => {
             if (currentIndex >= dialogueEntries.length) {
-                this.hideDialogue(dialogueBox);
+                this.hideDialogue(dialogueBox, overlay);
                 if (onComplete) onComplete();
                 return;
             }
@@ -85,7 +96,7 @@ export class DialogueManager {
             const character = entry.character || 'Character';
             const text = entry.text || '...';
 
-            this.showDialogue(character, text, dialogueBox, characterNameElement, textElement, continueBtn);
+            this.showDialogue(character, text, dialogueBox, characterNameElement, textElement, continueBtn, overlay);
 
             // Update continue button to show next dialogue
             continueBtn.onclick = () => {
@@ -93,7 +104,7 @@ export class DialogueManager {
                 if (currentIndex < dialogueEntries.length) {
                     showNext();
                 } else {
-                    this.hideDialogue(dialogueBox);
+                    this.hideDialogue(dialogueBox, overlay);
                     if (onComplete) onComplete();
                 }
             };
@@ -102,7 +113,7 @@ export class DialogueManager {
         showNext();
     }
 
-    handleCharacterClick(sceneId, characterId, characterName, dialogueBox, characterNameElement, textElement, continueBtn) {
+    handleCharacterClick(sceneId, characterId, characterName, dialogueBox, characterNameElement, textElement, continueBtn, overlay = null) {
         const dialogueEntries = this.getDialogueForCharacter(sceneId, characterId);
         
         if (dialogueEntries && dialogueEntries.length > 0) {
@@ -124,14 +135,14 @@ export class DialogueManager {
                     }
                 }
                 
-                this.showDialogueSequence(chain, dialogueBox, characterNameElement, textElement, continueBtn);
+                this.showDialogueSequence(chain, dialogueBox, characterNameElement, textElement, continueBtn, null, overlay);
             } else {
                 // Single dialogue entry
-                this.showDialogue(characterName, firstEntry.text, dialogueBox, characterNameElement, textElement, continueBtn);
+                this.showDialogue(characterName, firstEntry.text, dialogueBox, characterNameElement, textElement, continueBtn, overlay);
             }
         } else {
             // Default dialogue
-            this.showDialogue(characterName, "Hello! It's nice to see you!", dialogueBox, characterNameElement, textElement, continueBtn);
+            this.showDialogue(characterName, "Hello! It's nice to see you!", dialogueBox, characterNameElement, textElement, continueBtn, overlay);
         }
     }
 }

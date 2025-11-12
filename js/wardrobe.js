@@ -62,9 +62,14 @@ export class WardrobeManager {
         // Populate character selector
         this.populateCharacterSelector(characterSelect, characters);
 
-        // Set selected character
+        // Set selected character visually
         if (characterSelect) {
-            characterSelect.value = characterId;
+            characterSelect.querySelectorAll('.character-select-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.characterId === characterId) {
+                    btn.classList.add('active');
+                }
+            });
         }
 
         // Populate categories and outfits
@@ -83,10 +88,45 @@ export class WardrobeManager {
 
         characterSelect.innerHTML = '';
         characters.forEach(character => {
-            const option = document.createElement('option');
-            option.value = character.id;
-            option.textContent = character.name;
-            characterSelect.appendChild(option);
+            const charButton = document.createElement('button');
+            charButton.className = `character-select-btn ${this.selectedCharacter === character.id ? 'active' : ''}`;
+            charButton.dataset.characterId = character.id;
+            
+            const img = document.createElement('img');
+            img.src = character.sprite;
+            img.alt = character.name;
+            img.onerror = function() {
+                // Fallback if image doesn't exist
+                this.style.display = 'none';
+                charButton.innerHTML = `<span>${character.name}</span>`;
+            };
+            
+            const name = document.createElement('span');
+            name.className = 'character-select-name';
+            name.textContent = character.name;
+            
+            charButton.appendChild(img);
+            charButton.appendChild(name);
+            
+            charButton.onclick = () => {
+                // Remove active class from all buttons
+                characterSelect.querySelectorAll('.character-select-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                // Add active class to clicked button
+                charButton.classList.add('active');
+                // Update selected character
+                this.selectedCharacter = character.id;
+                this.selectedOutfit = null;
+                // Update wardrobe display
+                const categoriesList = document.getElementById('outfit-categories-list');
+                const outfitsGrid = document.getElementById('outfits-grid');
+                const applyBtn = document.getElementById('apply-outfit-btn');
+                const removeBtn = document.getElementById('remove-outfit-btn');
+                this.updateWardrobeDisplay(character.id, categoriesList, outfitsGrid, applyBtn, removeBtn);
+            };
+            
+            characterSelect.appendChild(charButton);
         });
     }
 
