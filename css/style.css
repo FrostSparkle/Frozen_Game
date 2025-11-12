@@ -134,17 +134,33 @@ body {
     cursor: pointer;
     transition: transform 0.2s;
     z-index: 20;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    height: 300px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
 }
 
 .character:hover {
-    transform: scale(1.1);
+    transform: scale(calc(var(--base-scale, 1) * 1.1));
 }
 
 .character img {
+    height: 100%;
+    width: auto;
     max-width: 200px;
-    max-height: 300px;
     display: block;
+    object-fit: contain;
+    object-position: bottom;
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    pointer-events: none;
 }
 
 .character.clickable {
@@ -153,10 +169,10 @@ body {
 
 @keyframes pulse {
     0%, 100% {
-        transform: scale(1);
+        transform: scale(var(--base-scale, 1));
     }
     50% {
-        transform: scale(1.05);
+        transform: scale(calc(var(--base-scale, 1) * 1.05));
     }
 }
 
@@ -245,7 +261,7 @@ body {
     max-width: 600px;
     width: 90%;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-    z-index: 200;
+    z-index: 260;
     animation: slideUp 0.3s ease-out;
 }
 
@@ -382,14 +398,55 @@ body {
     font-size: 1.1rem;
 }
 
-.character-select {
-    width: 100%;
-    padding: 12px;
-    font-size: 1rem;
+.character-selector-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.character-select-btn {
+    background: #f7fafc;
     border: 2px solid #cbd5e0;
-    border-radius: 10px;
-    background: white;
+    border-radius: 15px;
+    padding: 15px;
     cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+}
+
+.character-select-btn:hover {
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.character-select-btn.active {
+    background: rgba(102, 126, 234, 0.1);
+    border-color: #667eea;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.character-select-btn img {
+    width: 80px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.character-select-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #4a5568;
+}
+
+.character-select-btn.active .character-select-name {
+    color: #667eea;
+    font-weight: bold;
 }
 
 .outfit-categories {

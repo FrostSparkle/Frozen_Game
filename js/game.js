@@ -113,21 +113,10 @@ class Game {
 
         this.overlay.addEventListener('click', () => {
             this.wardrobeManager.closeWardrobe(this.wardrobePanel, this.overlay);
-            this.dialogueManager.hideDialogue(this.dialogueBox);
+            this.dialogueManager.hideDialogue(this.dialogueBox, this.overlay);
         });
 
-        // Character selector in wardrobe
-        this.wardrobeCharacterSelect.addEventListener('change', (e) => {
-            const characterId = e.target.value;
-            this.wardrobeManager.selectedCharacter = characterId;
-            this.wardrobeManager.updateWardrobeDisplay(
-                characterId,
-                this.outfitCategoriesList,
-                this.outfitsGrid,
-                this.applyOutfitBtn,
-                this.removeOutfitBtn
-            );
-        });
+        // Character selector in wardrobe is now handled by click events in wardrobe.js
 
         // Apply/Remove outfit buttons
         this.applyOutfitBtn.addEventListener('click', () => {
@@ -152,7 +141,14 @@ class Game {
 
         // Dialogue continue button
         this.dialogueContinueBtn.addEventListener('click', () => {
-            this.dialogueManager.hideDialogue(this.dialogueBox);
+            this.dialogueManager.hideDialogue(this.dialogueBox, this.overlay);
+        });
+
+        // Close dialogue with ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !this.dialogueBox.classList.contains('hidden')) {
+                this.dialogueManager.hideDialogue(this.dialogueBox, this.overlay);
+            }
         });
     }
 
@@ -208,7 +204,8 @@ class Game {
             this.dialogueBox,
             this.dialogueCharacterName,
             this.dialogueTextContent,
-            this.dialogueContinueBtn
+            this.dialogueContinueBtn,
+            this.overlay
         );
     }
 }

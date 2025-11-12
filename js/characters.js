@@ -2,7 +2,8 @@
 export class CharacterManager {
     constructor() {
         this.characters = [];
-        this.characterOutfits = {}; // Track current outfits per character
+        this.characterOutfits = {}; // Track current outfits per character (outfit IDs)
+        this.characterOutfitImages = {}; // Track current outfit images per character
     }
 
     async loadCharacters() {
@@ -38,11 +39,12 @@ export class CharacterManager {
         const character = this.getCharacterById(characterId);
         if (!character) return null;
 
-        // Check if character has a custom outfit applied
-        const currentOutfit = this.characterOutfits[characterId];
+        // Check if character has a custom outfit image applied
+        if (this.characterOutfitImages[characterId]) {
+            return this.characterOutfitImages[characterId];
+        }
         
-        // For now, return base sprite
-        // In a full implementation, this would check for outfit-specific sprites
+        // Return base sprite if no outfit is applied
         return character.sprite;
     }
 
@@ -62,6 +64,8 @@ export class CharacterManager {
         const character = this.getCharacterById(characterId);
         if (character) {
             this.characterOutfits[characterId] = character.defaultOutfit || 'default';
+            // Clear the outfit image to return to base sprite
+            delete this.characterOutfitImages[characterId];
             return true;
         }
         return false;
@@ -89,6 +93,12 @@ export class CharacterManager {
         if (position) {
             charDiv.style.left = `${position.x}px`;
             charDiv.style.bottom = `${position.y}px`;
+            // Apply scaling if specified
+            const baseScale = position.scale || 1;
+            charDiv.style.setProperty('--base-scale', baseScale);
+            charDiv.style.transformOrigin = 'bottom center';
+            // Set initial transform to match base scale (animation will override this)
+            charDiv.style.transform = `scale(${baseScale})`;
         }
 
         const img = document.createElement('img');
@@ -114,6 +124,13 @@ export class CharacterManager {
     }
 
     updateCharacterOutfit(characterId, outfitImage) {
+        // Store the outfit image so it persists when scenes are re-rendered
+        if (outfitImage) {
+            this.characterOutfitImages[characterId] = outfitImage;
+        } else {
+            delete this.characterOutfitImages[characterId];
+        }
+        
         // Update the visual representation of the character
         const charElements = document.querySelectorAll(`[data-character-id="${characterId}"]`);
         charElements.forEach(element => {
