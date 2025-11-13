@@ -10,7 +10,7 @@
     {
       "id": "ice_palace",
       "name": "Ice Palace",
-      "background": "assets/images/scenes/ice-palace.jpg",
+      "background": "assets/images/scenes/icepalace.png",
       "characters": ["elsa"],
       "unlocked": true
     },
